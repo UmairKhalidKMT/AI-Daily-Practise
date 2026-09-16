@@ -42,7 +42,7 @@ for shirt in shirts:  # First outer loop
 
     #####################################
 
-# BIG O: O(n) - Still Linear Time!
+# BIG O: O(n) - Still Linear Time!..
 # Even though we skip every second number (5 steps instead of 10),
 # computer scientists still call this O(n) because double the numbers 
 # still means double the total work overall!
