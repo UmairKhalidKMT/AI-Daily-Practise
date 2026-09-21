@@ -40,3 +40,6 @@ print("Squares:", squares)
 # Generate list with conditional logic (Only even numbers)
 even_numbers = [x for x in range(10) if x % 2 == 0]
 print("Even numbers (0-9):", even_numbers)
+
+
+
