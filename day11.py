@@ -78,6 +78,36 @@ def check_list_index():
         # Crucial Behavior: This WILL execute even though we hit 'return' above!
         print("[FINALLY BLOCK] This cleanup code ALWAYS runs (even after a 'return')!")
 
+
+"""
+
+CONCEPT DEFINITION:
+- Custom Errors (raise): Manually triggering built-in exceptions (e.g., ValueError)
+                        or custom error classes to halt invalid program state.
+- Why raise errors? To enforce rules early (fail-fast principle) so invalid inputs 
+                    don't propagate down your code causing silent bugs.
+
+"""
+
+def process_user_age():
+    user_input = input("Enter your age (between 18 and 100): ")
+
+    # Checking for non-numeric strings
+    if not user_input.isdigit():
+        # Raise ValueError if conversion isn't possible
+        raise ValueError("Invalid input! Age must be a numeric integer.")
+
+    age = int(user_input)
+
+    # Custom Business Rule Validation
+    if age < 18 or age > 100:
+        # Intentionally halt program execution when outside allowable range
+        raise ValueError(f"Age {age} is out of bounds! Must be between 18 and 100.")
+
+    print(f"[Success] Age recorded successfully: {age}")
+
+
+
     
 
 
@@ -85,3 +115,9 @@ if __name__ == "__main__":
     generate_multiplication_table()
     result = check_list_index()
     print(f"Function returned with code: {result}")
+
+    try:
+        process_user_age()
+    except ValueError as err:
+            # Catching the custom error raised above
+        print(f"[Caught Custom Error]: {err}")
