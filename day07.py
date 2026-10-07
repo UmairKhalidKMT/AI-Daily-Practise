@@ -1,5 +1,5 @@
 tup = (44, 88, 99, 100, 'umair')
-# tup[4] = 'taimoor'  # TypeError: tuples are immutable
+# tup[4] = 'taimoor'  # TypeError: tuples are immutable but tuple and list can have multiple data types
 print(tup)
 
 countries_tuple = ("Spain", "France", "Germany", "Italy", "Portugal")
