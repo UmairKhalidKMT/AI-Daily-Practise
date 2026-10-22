@@ -1,6 +1,62 @@
 """
 
 CONCEPT DEFINITIONS:
+1. Magic / Dunder Methods: Special built-in methods in Python surrounded by double 
+   underscores (e.g., __init__, __str__, __repr__, __len__, __call__).
+2. Purpose: They allow user-defined classes to integrate seamlessly with Python's 
+   built-in functions and syntax (like len(), print(), or direct object calling).
+"""
+
+class Employee:
+    """Class demonstrating Magic (Dunder) Methods in Python."""
+    
+    def __init__(self, name: str, salary: int, position: str):
+        self.name = name
+        self.salary = salary
+        self.position = position
+
+    def __str__(self):
+        """Returns a user-friendly string representation of the object (used by print())."""
+        return f"Employee: {self.name} ({self.position})"
+
+    def __repr__(self):
+        """Returns an official, developer-friendly string representation to recreate the object."""
+        return f"Employee('{self.name}', {self.salary}, '{self.position}')"
+
+    def __len__(self):
+        """Customizes the behavior of the built-in len() function based on name length."""
+        return len(self.name)
+
+    def __call__(self):
+        """Allows an instance of the class to be called directly like a function!"""
+        print(f"Hey! {self.name} has been called directly as a function.")
+
+
+# DEMONSTRATION IN VS CODE
+
+if __name__ == "__main__":
+    emp = Employee("Harry", 85000, "Instructor")
+
+    # 1. __str__ in action (triggered by print() or str())
+    print("--- 1. __str__ Output ---")
+    print(emp)  # Output: Employee: Harry (Instructor)
+
+    # 2. __repr__ in action (triggered in interactive shell or repr())
+    print("\n--- 2. __repr__ Output ---")
+    print(repr(emp))  # Output: Employee('Harry', 85000, 'Instructor')
+
+    # 3. __len__ in action (triggered by len())
+    print("\n--- 3. __len__ Output ---")
+    print(f"Length of employee name (len): {len(emp)}")  # Output: 5
+
+    # 4. __call__ in action (invoking the object instance as a function)
+    print("\n--- 4. __call__ Output ---")
+    emp()  # Output: Hey! Harry has been called directly as a function.
+
+
+"""
+
+CONCEPT DEFINITIONS:
 1. Object Introspection: The ability to determine the type or properties of an 
    object at runtime. Python provides built-in tools to inspect methods and attributes.
 2. dir(): Returns a list of all valid attributes and methods associated with an object.
